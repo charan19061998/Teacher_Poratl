@@ -53,3 +53,9 @@ API Endpoints
 /<int:id>/ - Edit specific student details.
 /delete_student/<int:id>/ - Delete specific student records.
 /logout/ - Log out the user.
+
+Contributing
+Contributions are welcome! Please open issues and pull requests as needed.
+
+License
+This project is licensed under the MIT License.
