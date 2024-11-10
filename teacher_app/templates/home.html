@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher Portal</title>
+    {% load static %}
+   
+    
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+    <script src="{% static 'js/script.js' %}"></script>
+    <div class="button-container">
+        <a href="{% url 'add_student' %}">
+            <button type="submit" class="add-student-btn">
+                Add Student
+            </button>
+        </a>
+    </div>
+
+    
+    
+    <h1>Student List</h1>
+    <a href="{% url 'logout' %}" class="logout-link">Logout</a>
+
+    
+
+    <table>
+        <tr><th>Name</th><th>Subject</th><th>Marks</th><th>Actions</th></tr>
+        {% for student in students %}
+        <tr>
+            <td> <span class="circle">{{ student.name|slice:":1" }}</span> {{ student.name }}</td>
+            <td>{{ student.subject }}</td>
+            <td>{{ student.marks }}</td>
+            <td>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary" type="button" data-id="{{ student.id|escapejs }}" onclick="toggleDropdown(this)">
+                        <i class="fas fa-chevron-circle-down"></i> 
+                    </button>
+
+                    <div id="dropdown-{{ student.id }}" class="dropdown-menu-content" style="display:none;">
+                        <a href="{% url 'update_student' student.id %}" style="display: block; padding: 5px 0; color: rgb(73, 10, 219); text-decoration: none;">Edit</a>
+                        <form action="{% url 'delete_student' student.id %}" method="POST" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" style="border: none; background: none;padding: 5px 0; color: red;">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </td>
+            
+            
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+<script src="{% static 'js/script.js' %}"></script>
+</html>

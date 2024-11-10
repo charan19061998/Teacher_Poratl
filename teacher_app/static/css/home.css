@@ -1,0 +1,211 @@
+/* Basic reset and font */
+    .circle {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        background-color: blue;
+        color: white;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 15px;
+    }
+.button-container {
+    position: relative; /* This ensures absolute positioning inside this container */
+}
+
+.add-student-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    position: fixed; /* Fixed position relative to the viewport */
+    left: 130px; /* Adjust this as needed */
+    top: 30px; /* Adjust this as needed */
+    cursor: pointer;
+}
+
+
+.logout-link {
+    color: black; /* Text color */
+    font-weight: bold; /* Make the text bold */
+    position: fixed; /* Fixed positioning to stay on the right side */
+    right: 140px; /* Distance from the right edge of the window */
+    top: 50px; /* Optional: distance from the top */
+    text-decoration: none; /* Remove underline */
+    font-size: 15px;
+}
+
+.logout-link:hover {
+    color: red; /* Optional: color change on hover */
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Header styling */
+h1 {
+    color: #4a90e2;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Button styling for Add New Student */
+button {
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+
+/* Student table styling */
+table {
+    width: 100%;
+    max-width: 1100px;
+    height: 100%;
+    max-height: 500px;
+    margin-top: 0px;
+    margin-left:0px ;
+    border-collapse: collapse; /* Ensures borders are consistent */
+    background-color: #ffffff;
+
+}
+table tr {
+    min-height: 50px;
+}
+
+table td {
+    padding: 10px;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    
+    font-weight: bold;
+}
+
+td button {
+
+    color: rgb(10, 8, 8);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+
+
+/* Modal styling for Add Student Form */
+#add-student-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    z-index: 10;
+    text-align: center;
+}
+
+#add-student-modal input[type="text"],
+#add-student-modal input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#add-student-modal button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+/* Overlay effect when modal is open */
+#add-student-modal:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+/* Style for the dropdown button (three dots) */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style for the floating dropdown menu */
+.dropdown-menu-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    width: 150px;
+    border-radius: 5px;
+}
+
+/* Optional: Add a little spacing to the dropdown options */
+.dropdown-menu-content a,
+.dropdown-menu-content button {
+    display: block;
+    margin: 5px 0;
+}
+
+/* CSS for Add Student button */
+.btn-add-student {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px; /* Optional: Adds rounded corners */
+    transition: background-color 0.3s ease;
+    position: relative;
+    right: 490px;
+    top: 250px;
+
+    
+}
+
+/* Hover effect for the button */
+.btn-add-student:hover {
+    background-color: #333; /* Slightly lighter black */
+}

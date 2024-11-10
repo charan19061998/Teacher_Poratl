@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/add_student.css' %}">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-content">
+            <h2>Add Student</h2>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                        {{ form.name }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <div class="input-icon">
+                        <i class="fas fa-book"></i>
+                        {{ form.subject }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="marks">Mark</label>
+                    <div class="input-icon">
+                        <i class="fas fa-bookmark"></i>
+                        {{ form.marks }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Add">
+                </div>
+            </form>
+
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
